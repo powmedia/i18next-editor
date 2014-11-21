@@ -77,13 +77,13 @@
       var target_column = $("<td />").appendTo(row);
 
       key_column.html('<label class="right">'+dot_name+'</label>');
-      $("<input type='text' />")
+      $("<textarea>")
         .prop('name', key)
         .val(results_source[key])
         .addClass('source')
         .appendTo(source_column);
 
-      var target_input = $("<input type='text' />")
+      var target_input = $("<textarea>")
         .prop('name', key)
         .addClass('target')
         .appendTo(target_column);
