@@ -164,4 +164,9 @@
     }
   });
 
+  //Ask if they really want to leave the page to prevent losing content
+  window.onbeforeunload = function confirmExit() {
+      return "You have attempted to leave this page. Are you sure?";
+  };
+
 })(jQuery, this);
