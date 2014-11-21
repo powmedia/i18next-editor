@@ -12,7 +12,6 @@
     "supervisor": "*"
   },
   "engines": {
-    "node": "0.8.8",
-    "npm": "1.1.65"
+    "node": "0.10.x"
   }
 }
