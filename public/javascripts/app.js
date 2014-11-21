@@ -122,8 +122,8 @@
 
   // Transform input fields to json based on there name
   var editorToJson = function() {
-    var source_json = $("input.source").toJSON();
-    var target_json = $("input.target").toJSON();
+    var source_json = $("textarea.source").toJSON();
+    var target_json = $("textarea.target").toJSON();
 
     $("#source_text").val(JSON.stringify(source_json, null, 2));
     $("#target_text").val(JSON.stringify(target_json, null, 2));
