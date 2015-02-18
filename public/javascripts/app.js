@@ -135,7 +135,26 @@
   $("#editor_to_json").on("click", function(e) {
     e.preventDefault();
     editorToJson();
-    $(".source_tab a").trigger('click.fndtn');
+    //$(".source_tab a").trigger('click.fndtn');
+    
+    var targetJson = $("#target_text").val();
+
+    //Post updated content
+    $.ajax({
+      type: 'post',
+      url: window.location.href,
+      data: {
+        zh: targetJson
+      },
+      success: function() {
+        window.onbeforeunload = null;
+        window.location.href = '/';
+      },
+      error: function() {
+        console.error(arguments);
+        alert('Error');
+      }
+    });
   });
 
   // Trigger converting json to inputs
@@ -166,7 +185,11 @@
 
   //Ask if they really want to leave the page to prevent losing content
   window.onbeforeunload = function confirmExit() {
-      return "You have attempted to leave this page. Are you sure?";
+      return "Are you sure you want to leave the page without saving changes?";
   };
+
+
+  //Automatically generate inputs
+  setTimeout(jsonToEditor, 10);
 
 })(jQuery, this);

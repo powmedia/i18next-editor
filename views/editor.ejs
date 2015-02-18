@@ -76,23 +76,67 @@
       </div>
       <hr />
     </div>
-
     <div class="row">
       <div class="twelve columns">
-        <h2>Groups</h2>
-        <ul>
-          <% groups.forEach(function(group) { %>
-            <li><a href="/<%= group.id %>"><%= group.id %></a></li>
-          <% }) %>
+        <dl class="tabs contained" id="view_switcher">
+          <dt>View:</dt>
+          <dd class="active source_tab" style="display: none"><a href="#source">Source</a></dd>
+          <dd class="editor_tab" style="display: none"><a href="#editor">Editor</a></dd>
+          <dd class="eight offset-by-one"><div id="message" class="alert-box secondary">Good to go</div></dd>
+        </dl>
+        <ul class="tabs-content contained">
+          <li class="active" id="sourceTab">
+            <div class="row">
+              <div class="six columns">
+                <button class="button tiny secondary prettify right" data-target="#source_text"><i class="icon-ok"></i> Prettify</button>
+              </div>
+              <div class="six columns">
+                <button class="button tiny secondary prettify right" data-target="#target_text"><i class="icon-ok"></i> Prettify</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="six columns">
+                <textarea id="source_text" placeholder="Source language JSON" rows="20">
+<%= en %>
+                </textarea>
+              </div>
+              <div class="six columns">
+                <textarea id="target_text" placeholder="Target language JSON" rows="20">
+<%= zh %>
+                </textarea>
+              </div>
+            </div>
+            <div class="row">
+              <div class="twelve columns">
+                <button class="button right" id="json_to_editor"><i class="icon-cogs"></i> Generate input fields</button>
+              </div>
+            </div>
+          </li>
+          <li id="editorTab">
+            <table class="twelve">
+              <thead>
+                <tr>
+                  <th class="two">key</th>
+                  <th class="five">source value</th>
+                  <th class="five">target value</th>
+                </tr>
+              </thead>
+              <tbody>
+              </tbody>
+            </table>
+            <div class="row">
+              <div class="twelve columns">
+                <button id="editor_to_json" class="button right"><i class="icon-magic"></i> <!--Generate JSON-->Save</button>
+              </div>
+            </div>
+          </li>
         </ul>
       </div>
-      <hr />
     </div>
-
   </div>
 
   <script src="/javascripts/foundation.min.js"></script>
   <script src="/javascripts/jquery.to_json.js"></script>
-  <!--<script src="/javascripts/app.js"></script>-->
+  <script src="/javascripts/app.js"></script>
 </body>
 </html>
