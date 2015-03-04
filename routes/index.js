@@ -9,7 +9,6 @@ exports.index = function(req, res){
     if (err) return next(err);
 
     res.render('index', {
-      title: 'i18next Editor',
       groups: groups
     });
   });
@@ -27,9 +26,9 @@ exports.edit = function(req, res, next) {
     if (!group) return next(new Error('Group not found'));
 
     res.render('editor', {
-      title: 'i18next Editor',
-      en: group.en,
-      zh: group.zh
+      group: group,
+      source: group.en,
+      target: group.zh
     });
   });
 };
@@ -67,3 +66,17 @@ exports.update = function(req, res, next) {
     });
   });
 };
+
+
+exports.output = function(req, res, next) {
+  var groupId = req.params.id;
+
+  Group.findById(groupId, function(err, group) {
+    if (err) return next(err);
+    if (!group) return next(new Error('Group not found'));
+
+    res.render('output', {
+      group: group
+    });
+  }); 
+}

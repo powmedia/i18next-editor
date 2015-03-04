@@ -37,6 +37,7 @@ app.get('/new', routes.new);
 app.post('/', routes.create);
 app.get('/:id', routes.edit);
 app.post('/:id', routes.update);
+app.get('/:id/output', routes.output);
 
 
 //Connect to MongoDB

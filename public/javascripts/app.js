@@ -183,6 +183,12 @@
     }
   });
 
+  $("#output").on("click", function(e) {
+    e.preventDefault();
+    console.log('click')
+    editorToJson();
+  });
+
   //Ask if they really want to leave the page to prevent losing content
   window.onbeforeunload = function confirmExit() {
       return "Are you sure you want to leave the page without saving changes?";

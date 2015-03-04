@@ -13,7 +13,7 @@
   <!-- Set the viewport width to device width for mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>i18next Editor</title>
+  <title>Translator</title>
 
   <!-- Included CSS Files -->
   <link rel="stylesheet" href="/stylesheets/foundation.min.css" />
@@ -40,28 +40,24 @@
         <ul>
           <!-- Title Area -->
           <li class="name">
-            <h1><a href="/">i18Next Editor</a></h1>
+            <h1><a href="/">Translator</a></h1>
           </li>
           <li class="toggle-topbar"><a href="#"></a></li>
         </ul>
 
         <section>
           <ul class="left">
-            <li class="divider"></li>
-            <li><a href="https://github.com/auxilium/i18next-editor"><i class="icon-github"></i> Github</a></li>
-            <li class="divider"></li>
+            <li><a href="/">Sections</a></li>
           </ul>
-          <ul class="right">
+          <!--<ul class="right">
             <li class="divider"></li>
             <li class="has-dropdown">
-              <a href="#">About</a>
+              <a href="#">Menu</a>
               <ul class="dropdown">
-                <li><label>Credits</label></li>
-                <li><a href="http://www.auxilium.nl">Auxilium B.V.</a></li>
-                <li><a href="http://manuel.manuelles.nl"><i class="icon-user"></i> Manuel van Rijn</a></li>
+                <li><a href="/new">Create group</a></li>
               </ul>
             </li>
-          </ul>
+          </ul>-->
         </section>
       </nav>
     </div>
@@ -72,21 +68,21 @@
 
     <div class="row">
       <div class="twelve columns">
-        <h2>i18Next language editor</h2>
-      </div>
-      <hr />
-    </div>
-
-    <div class="row">
-      <div class="twelve columns">
-        <h2>Groups</h2>
+        <h2>Sections</h2>
         <ul>
           <% groups.forEach(function(group) { %>
-            <li><a href="/<%= group.id %>"><%= group.id %></a></li>
+            <li>
+              <a href="/<%= group.id %>"><%= group.id %></a>
+              <div class="right">
+                <a href="/<%= group.id %>">Edit</a> | 
+                <a href="/<%= group.id %>/output">Output</a>
+              </div>
+            </li>
           <% }) %>
         </ul>
       </div>
       <hr />
+      <a href="/new" class="button small right">+ New section</a>
     </div>
 
   </div>
